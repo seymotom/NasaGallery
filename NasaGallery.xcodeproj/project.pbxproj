@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		DEDD00B32611FC4800FEAF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00B22611FC4800FEAF80 /* AppDelegate.swift */; };
 		DEDD00B52611FC4800FEAF80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00B42611FC4800FEAF80 /* SceneDelegate.swift */; };
-		DEDD00B72611FC4800FEAF80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00B62611FC4800FEAF80 /* ViewController.swift */; };
-		DEDD00BA2611FC4800FEAF80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD00B82611FC4800FEAF80 /* Main.storyboard */; };
 		DEDD00BC2611FC4C00FEAF80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDD00BB2611FC4C00FEAF80 /* Assets.xcassets */; };
 		DEDD00BF2611FC4C00FEAF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD00BD2611FC4C00FEAF80 /* LaunchScreen.storyboard */; };
 		DEDD00CA2611FC4D00FEAF80 /* NasaGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00C92611FC4D00FEAF80 /* NasaGalleryTests.swift */; };
 		DEDD00D52611FC4D00FEAF80 /* NasaGalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00D42611FC4D00FEAF80 /* NasaGalleryUITests.swift */; };
+		DEDD00EC26120EF700FEAF80 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */; };
+		DEDD00F42612113E00FEAF80 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */; };
+		DEDD00F92612132500FEAF80 /* NasaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00F82612132500FEAF80 /* NasaImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +39,6 @@
 		DEDD00AF2611FC4800FEAF80 /* NasaGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD00B22611FC4800FEAF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDD00B42611FC4800FEAF80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DEDD00B62611FC4800FEAF80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DEDD00B92611FC4800FEAF80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DEDD00BB2611FC4C00FEAF80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDD00BE2611FC4C00FEAF80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEDD00C02611FC4C00FEAF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,9 @@
 		DEDD00D02611FC4D00FEAF80 /* NasaGalleryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaGalleryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD00D42611FC4D00FEAF80 /* NasaGalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaGalleryUITests.swift; sourceTree = "<group>"; };
 		DEDD00D62611FC4D00FEAF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		DEDD00F82612132500FEAF80 /* NasaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +103,12 @@
 			children = (
 				DEDD00B22611FC4800FEAF80 /* AppDelegate.swift */,
 				DEDD00B42611FC4800FEAF80 /* SceneDelegate.swift */,
-				DEDD00B62611FC4800FEAF80 /* ViewController.swift */,
-				DEDD00B82611FC4800FEAF80 /* Main.storyboard */,
 				DEDD00BB2611FC4C00FEAF80 /* Assets.xcassets */,
 				DEDD00BD2611FC4C00FEAF80 /* LaunchScreen.storyboard */,
 				DEDD00C02611FC4C00FEAF80 /* Info.plist */,
+				DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */,
+				DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */,
+				DEDD00F82612132500FEAF80 /* NasaImage.swift */,
 			);
 			path = NasaGallery;
 			sourceTree = "<group>";
@@ -233,7 +236,6 @@
 			files = (
 				DEDD00BF2611FC4C00FEAF80 /* LaunchScreen.storyboard in Resources */,
 				DEDD00BC2611FC4C00FEAF80 /* Assets.xcassets in Resources */,
-				DEDD00BA2611FC4800FEAF80 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEDD00B72611FC4800FEAF80 /* ViewController.swift in Sources */,
+				DEDD00EC26120EF700FEAF80 /* GalleryViewController.swift in Sources */,
+				DEDD00F42612113E00FEAF80 /* GalleryViewModel.swift in Sources */,
+				DEDD00F92612132500FEAF80 /* NasaImage.swift in Sources */,
 				DEDD00B32611FC4800FEAF80 /* AppDelegate.swift in Sources */,
 				DEDD00B52611FC4800FEAF80 /* SceneDelegate.swift in Sources */,
 			);
@@ -296,14 +300,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DEDD00B82611FC4800FEAF80 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DEDD00B92611FC4800FEAF80 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DEDD00BD2611FC4C00FEAF80 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
