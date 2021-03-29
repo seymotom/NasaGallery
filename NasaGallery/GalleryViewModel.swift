@@ -21,7 +21,8 @@ class GalleryViewModel {
         }
     }
     
-    var itemViewModels: [NasaItem: NasaItemViewModel] = [:]
+    // caching viewModels
+    var itemViewModels: [NasaItem: GalleryItemViewModel] = [:]
     
     weak var delegate: GalleryDelegate?
     
@@ -46,13 +47,18 @@ class GalleryViewModel {
         }
     }
     
-    func itemViewModel(for item: NasaItem) -> NasaItemViewModel {
+    func itemViewModel(for item: NasaItem) -> GalleryItemViewModel {
         if let itemViewModel = self.itemViewModels[item] {
             return itemViewModel
         }
-        
-        let itemViewModel = NasaItemViewModel(item)
+        // if viewModel doesn't exist create one and store it
+        let itemViewModel = GalleryItemViewModel(item)
         self.itemViewModels[item] = itemViewModel
         return itemViewModel
+    }
+    
+    func itemViewModel(for index: Int) -> GalleryItemViewModel? {
+        guard let items = self.items else { return nil }
+        return self.itemViewModels[items[index]]
     }
 }

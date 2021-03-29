@@ -1,5 +1,5 @@
 //
-//  NasaItemViewModel.swift
+//  GalleryItemViewModel.swift
 //  NasaGallery
 //
 //  Created by Tom Seymour on 3/29/21.
@@ -11,7 +11,7 @@ protocol ImageDelegate: AnyObject {
     func setThumbnail(_ data: Data)
 }
 
-class NasaItemViewModel {
+class GalleryItemViewModel {
     private let item: NasaItem
     
     var title: String { item.title }

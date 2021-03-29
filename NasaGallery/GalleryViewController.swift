@@ -7,8 +7,8 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController, GalleryDelegate {
-    let viewModel = GalleryViewModel()
+class GalleryViewController: UIViewController, GalleryDelegate, UICollectionViewDelegate {
+    let viewModel: GalleryViewModel
     
     enum Section {
         case main
@@ -17,6 +17,15 @@ class GalleryViewController: UIViewController, GalleryDelegate {
     var dataSource: UICollectionViewDiffableDataSource<Section, NasaItem>!
     var collectionView: UICollectionView!
     
+    init(viewModel: GalleryViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "NASA Gallery"
@@ -24,6 +33,7 @@ class GalleryViewController: UIViewController, GalleryDelegate {
         self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: gridLayout())
         self.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.collectionView.backgroundColor = .darkGray
+        self.collectionView.delegate = self
         self.view.addSubview(collectionView)
         
         let cellRegistration = UICollectionView.CellRegistration<GalleryCell, NasaItem> { (cell, indexPath, nasaItem) in
@@ -75,4 +85,9 @@ class GalleryViewController: UIViewController, GalleryDelegate {
         return layout
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let itemViewModel = self.viewModel.itemViewModel(for: indexPath.item) {
+            navigationController?.pushViewController(GalleryDetailViewController(viewModel: itemViewModel), animated: true)
+        }
+    }
 }

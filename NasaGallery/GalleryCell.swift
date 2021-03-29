@@ -15,7 +15,7 @@ class GalleryCell: UICollectionViewCell, ImageDelegate {
     let activityIndicator = UIActivityIndicatorView()
     static let reuseIdentifier = "GalleryCell"
     
-    var viewModel: NasaItemViewModel? {
+    var viewModel: GalleryItemViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
             viewModel.delegate = self
