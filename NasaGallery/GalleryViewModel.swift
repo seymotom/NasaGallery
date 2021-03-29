@@ -13,8 +13,7 @@ protocol GalleryDelegate: AnyObject {
 }
 
 class GalleryViewModel {
-    
-    private let nasaUrl = "https://images-api.nasa.gov/search?q=space&media_type=image"
+    private var nextPageUrl = "https://images-api.nasa.gov/search?q=space&media_type=image"
     
     private(set) var items: [NasaItem]? {
         didSet {
@@ -27,12 +26,15 @@ class GalleryViewModel {
     weak var delegate: GalleryDelegate?
     
     func fetchItems() {
-        Network.fetchData(endpoint: self.nasaUrl) { [weak self] data, error in
+        Network.fetchData(endpoint: self.nextPageUrl) { [weak self] data, error in
             guard let self = self else { return }
             if let data = data {
                 do {
                     let collection = try JSONDecoder().decode(NasaCollectionWrapper.self, from: data)
-                    self.items = collection.collection.items
+                    self.items = (self.items ?? []) + collection.collection.items
+                    if let nextPageUrl = collection.collection.links.first(where: { $0.prompt == "Next" })?.href {
+                        self.nextPageUrl = nextPageUrl
+                    }
                 } catch (let error) {
                     self.delegate?.showError(error)
                 }

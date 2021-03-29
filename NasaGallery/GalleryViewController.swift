@@ -14,7 +14,7 @@ class GalleryViewController: UIViewController, GalleryDelegate {
         case main
     }
 
-    var dataSource: UICollectionViewDiffableDataSource<Section, NasaItem>! = nil
+    var dataSource: UICollectionViewDiffableDataSource<Section, NasaItem>!
     var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -29,6 +29,11 @@ class GalleryViewController: UIViewController, GalleryDelegate {
         let cellRegistration = UICollectionView.CellRegistration<GalleryCell, NasaItem> { (cell, indexPath, nasaItem) in
             // Populate the cell with viewModel
             cell.viewModel = self.viewModel.itemViewModel(for: nasaItem)
+            
+            // if collectionView is populating the last item then fetch next page of items
+            if nasaItem == self.viewModel.items?.last {
+                self.viewModel.fetchItems()
+            }
         }
         
         self.dataSource = UICollectionViewDiffableDataSource<Section, NasaItem>(collectionView: collectionView) {
@@ -55,12 +60,12 @@ class GalleryViewController: UIViewController, GalleryDelegate {
     
     
     private func gridLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33),
                                              heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalWidth(0.7))
+                                               heightDimension: .fractionalWidth(0.4))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                          subitems: [item])
 
