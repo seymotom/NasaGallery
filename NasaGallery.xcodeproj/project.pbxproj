@@ -18,6 +18,7 @@
 		DEDD00F92612132500FEAF80 /* NasaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00F82612132500FEAF80 /* NasaImage.swift */; };
 		DEDD00FE261243A100FEAF80 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00FD261243A000FEAF80 /* GalleryCell.swift */; };
 		DEDD01032612556800FEAF80 /* NasaItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD01022612556800FEAF80 /* NasaItemViewModel.swift */; };
+		DEDD010B2612657A00FEAF80 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD010A2612657A00FEAF80 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		DEDD00F82612132500FEAF80 /* NasaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImage.swift; sourceTree = "<group>"; };
 		DEDD00FD261243A000FEAF80 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		DEDD01022612556800FEAF80 /* NasaItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaItemViewModel.swift; sourceTree = "<group>"; };
+		DEDD010A2612657A00FEAF80 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				DEDD00F82612132500FEAF80 /* NasaImage.swift */,
 				DEDD00FD261243A000FEAF80 /* GalleryCell.swift */,
 				DEDD01022612556800FEAF80 /* NasaItemViewModel.swift */,
+				DEDD010A2612657A00FEAF80 /* Network.swift */,
 			);
 			path = NasaGallery;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				DEDD01032612556800FEAF80 /* NasaItemViewModel.swift in Sources */,
 				DEDD00FE261243A100FEAF80 /* GalleryCell.swift in Sources */,
+				DEDD010B2612657A00FEAF80 /* Network.swift in Sources */,
 				DEDD00EC26120EF700FEAF80 /* GalleryViewController.swift in Sources */,
 				DEDD00F42612113E00FEAF80 /* GalleryViewModel.swift in Sources */,
 				DEDD00F92612132500FEAF80 /* NasaImage.swift in Sources */,

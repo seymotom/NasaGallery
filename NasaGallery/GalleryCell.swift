@@ -21,7 +21,7 @@ class GalleryCell: UICollectionViewCell, ImageDelegate {
             viewModel.delegate = self
 //            self.label.text = viewModel.title
             if let thumbnailData = viewModel.thumbnailImageData {
-                self.setImage(thumbnailData)
+                self.setThumbnail(thumbnailData)
             } else {
                 viewModel.fetchThumbnail()
                 self.activityIndicator.startAnimating()
@@ -29,7 +29,7 @@ class GalleryCell: UICollectionViewCell, ImageDelegate {
         }
     }
     
-    func setImage(_ data: Data) {
+    func setThumbnail(_ data: Data) {
         DispatchQueue.main.async {
             self.imageView.image = UIImage(data: data)
             self.activityIndicator.stopAnimating()

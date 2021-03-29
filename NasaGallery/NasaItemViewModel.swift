@@ -8,14 +8,21 @@
 import Foundation
 
 protocol ImageDelegate: AnyObject {
-    func setImage(_ data: Data)
+    func setThumbnail(_ data: Data)
 }
 
 class NasaItemViewModel {
     private let item: NasaItem
     
     var title: String { item.title }
-    var thumbnailImageData: Data?
+    
+    private(set) var thumbnailImageData: Data? {
+        didSet {
+            if let data = thumbnailImageData {
+                self.delegate?.setThumbnail(data)
+            }
+        }
+    }
     
     weak var delegate: ImageDelegate?
     
@@ -24,14 +31,13 @@ class NasaItemViewModel {
     }
     
     func fetchThumbnail() {
-        guard let url = URL(string: self.item.thumbnailUrl) else {
-            return
-        }
-        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+        Network.fetchData(endpoint: self.item.thumbnailUrl) { [weak self] data, error in
             if let data = data {
-                self.thumbnailImageData = data
-                self.delegate?.setImage(data)
+                self?.thumbnailImageData = data
             }
-        }.resume()
+            if let error = error {
+                print("Error fetching thumbnail image \(error)")
+            }
+        }
     }
 }

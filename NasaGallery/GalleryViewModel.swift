@@ -9,6 +9,7 @@ import Foundation
 
 protocol GalleryDelegate: AnyObject {
     func contentChanged()
+    func showError(_ error: Error)
 }
 
 class GalleryViewModel {
@@ -26,24 +27,21 @@ class GalleryViewModel {
     weak var delegate: GalleryDelegate?
     
     func fetchItems() {
-        guard let url = URL(string: nasaUrl) else {
-            fatalError("invalid URL")
-        }
-        
-        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+        Network.fetchData(endpoint: self.nasaUrl) { [weak self] data, error in
+            guard let self = self else { return }
             if let data = data {
                 do {
                     let collection = try JSONDecoder().decode(NasaCollectionWrapper.self, from: data)
                     self.items = collection.collection.items
-                } catch {
-                    fatalError("couldn't decode json \(error)")
+                } catch (let error) {
+                    self.delegate?.showError(error)
                 }
             }
             
             if let error = error {
-                print("network error \(error)")
+                self.delegate?.showError(error)
             }
-        }.resume()
+        }
     }
     
     func itemViewModel(for item: NasaItem) -> NasaItemViewModel {

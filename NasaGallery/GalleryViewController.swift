@@ -26,13 +26,12 @@ class GalleryViewController: UIViewController, GalleryDelegate {
         self.collectionView.backgroundColor = .darkGray
         self.view.addSubview(collectionView)
         
-        
         let cellRegistration = UICollectionView.CellRegistration<GalleryCell, NasaItem> { (cell, indexPath, nasaItem) in
             // Populate the cell with viewModel
             cell.viewModel = self.viewModel.itemViewModel(for: nasaItem)
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, NasaItem>(collectionView: collectionView) {
+        self.dataSource = UICollectionViewDiffableDataSource<Section, NasaItem>(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, identifier: NasaItem) -> UICollectionViewCell? in
             // Return the cell.
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
@@ -43,14 +42,15 @@ class GalleryViewController: UIViewController, GalleryDelegate {
     }
     
     func contentChanged() {
-        print("SUCCESS")
-        dump(viewModel.items)
-        if let items = viewModel.items {
-            var snapshot = NSDiffableDataSourceSnapshot<Section, NasaItem>()
-            snapshot.appendSections([.main])
-            snapshot.appendItems(items)
-            self.dataSource.apply(snapshot, animatingDifferences: true)
-        }
+        var snapshot = NSDiffableDataSourceSnapshot<Section, NasaItem>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(self.viewModel.items ?? [])
+        self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func showError(_ error: Error) {
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     

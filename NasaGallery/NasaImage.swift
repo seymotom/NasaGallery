@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum APIError: Error {
-    case jsonDecodeError
-    case unknown
+enum DecodeError: Error {
+    case noData
+    case noThumbnaiLink
 }
 
 struct NasaItem: Decodable, Hashable {
@@ -35,7 +35,7 @@ struct NasaItem: Decodable, Hashable {
         self.imageCollectionUrl = try container.decode(String.self, forKey: .imageCollectionUrl)
         let datas = try container.decode([NasaData].self, forKey: .data)
         guard let data = datas.first  else {
-            throw APIError.jsonDecodeError
+            throw DecodeError.noData
         }
         self.id = data.nasa_id
         self.title = data.title
@@ -44,7 +44,7 @@ struct NasaItem: Decodable, Hashable {
         
         let links = try container.decode([ItemLink].self, forKey: .links)
         guard let link = links.first  else {
-            throw APIError.jsonDecodeError
+            throw DecodeError.noThumbnaiLink
         }
         self.thumbnailUrl = link.href
     }
