@@ -12,7 +12,7 @@ public enum APIError: Error {
     case unknown
 }
 
-struct NasaItem: Decodable {
+struct NasaItem: Decodable, Hashable {
     let id: String
     let title: String
     let description: String

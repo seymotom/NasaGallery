@@ -16,6 +16,7 @@
 		DEDD00EC26120EF700FEAF80 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */; };
 		DEDD00F42612113E00FEAF80 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */; };
 		DEDD00F92612132500FEAF80 /* NasaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00F82612132500FEAF80 /* NasaImage.swift */; };
+		DEDD00FE261243A100FEAF80 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00FD261243A000FEAF80 /* GalleryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		DEDD00F82612132500FEAF80 /* NasaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImage.swift; sourceTree = "<group>"; };
+		DEDD00FD261243A000FEAF80 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */,
 				DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */,
 				DEDD00F82612132500FEAF80 /* NasaImage.swift */,
+				DEDD00FD261243A000FEAF80 /* GalleryCell.swift */,
 			);
 			path = NasaGallery;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEDD00FE261243A100FEAF80 /* GalleryCell.swift in Sources */,
 				DEDD00EC26120EF700FEAF80 /* GalleryViewController.swift in Sources */,
 				DEDD00F42612113E00FEAF80 /* GalleryViewModel.swift in Sources */,
 				DEDD00F92612132500FEAF80 /* NasaImage.swift in Sources */,

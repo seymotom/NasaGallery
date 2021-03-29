@@ -34,8 +34,7 @@ class GalleryViewModel {
                     let collection = try JSONDecoder().decode(NasaCollectionWrapper.self, from: data)
                     self.items = collection.collection.items
                 } catch {
-                    print(error)
-                    fatalError("couldn't decode json")
+                    fatalError("couldn't decode json \(error)")
                 }
             }
             
