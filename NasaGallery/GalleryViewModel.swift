@@ -21,6 +21,8 @@ class GalleryViewModel {
         }
     }
     
+    var itemViewModels: [NasaItem: NasaItemViewModel] = [:]
+    
     weak var delegate: GalleryDelegate?
     
     func fetchItems() {
@@ -42,5 +44,15 @@ class GalleryViewModel {
                 print("network error \(error)")
             }
         }.resume()
+    }
+    
+    func itemViewModel(for item: NasaItem) -> NasaItemViewModel {
+        if let itemViewModel = self.itemViewModels[item] {
+            return itemViewModel
+        }
+        
+        let itemViewModel = NasaItemViewModel(item)
+        self.itemViewModels[item] = itemViewModel
+        return itemViewModel
     }
 }

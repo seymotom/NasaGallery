@@ -23,14 +23,13 @@ class GalleryViewController: UIViewController, GalleryDelegate {
         
         self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: gridLayout())
         self.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.collectionView.backgroundColor = .yellow
+        self.collectionView.backgroundColor = .darkGray
         self.view.addSubview(collectionView)
         
         
         let cellRegistration = UICollectionView.CellRegistration<GalleryCell, NasaItem> { (cell, indexPath, nasaItem) in
-            // Populate the cell with our item description.
-            cell.label.text = nasaItem.title
-            cell.backgroundColor = .blue
+            // Populate the cell with viewModel
+            cell.viewModel = self.viewModel.itemViewModel(for: nasaItem)
         }
         
         dataSource = UICollectionViewDiffableDataSource<Section, NasaItem>(collectionView: collectionView) {
