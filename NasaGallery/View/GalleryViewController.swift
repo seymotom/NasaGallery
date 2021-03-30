@@ -7,15 +7,24 @@
 
 import UIKit
 
+extension GalleryDelegate where Self: UIViewController {
+    func showError(_ error: Error) {
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okayAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
 class GalleryViewController: UIViewController, GalleryDelegate, UICollectionViewDelegate {
-    let viewModel: GalleryViewModel
+    private let viewModel: GalleryViewModel
     
     enum Section {
         case main
     }
 
-    var dataSource: UICollectionViewDiffableDataSource<Section, NasaItem>!
-    var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, NasaItem>!
+    private var collectionView: UICollectionView!
     
     init(viewModel: GalleryViewModel) {
         self.viewModel = viewModel
@@ -28,13 +37,17 @@ class GalleryViewController: UIViewController, GalleryDelegate, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "NASA Gallery"
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        title = "NASA Gallery"
         
-        self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: gridLayout())
-        self.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.collectionView.backgroundColor = .darkGray
-        self.collectionView.delegate = self
-        self.view.addSubview(collectionView)
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: gridLayout())
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .black
+        collectionView.delegate = self
+        view.addSubview(collectionView)
         
         let cellRegistration = UICollectionView.CellRegistration<GalleryCell, NasaItem> { (cell, indexPath, nasaItem) in
             // Populate the cell with viewModel
@@ -52,22 +65,16 @@ class GalleryViewController: UIViewController, GalleryDelegate, UICollectionView
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
         }
         
-        self.viewModel.delegate = self
-        self.viewModel.fetchItems()
+        viewModel.delegate = self
+        viewModel.fetchItems()
     }
     
     func contentChanged() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, NasaItem>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(self.viewModel.items ?? [])
+        snapshot.appendItems(viewModel.items ?? [])
         self.dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
-    func showError(_ error: Error) {
-        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     
     private func gridLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33),
@@ -86,7 +93,7 @@ class GalleryViewController: UIViewController, GalleryDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let itemViewModel = self.viewModel.itemViewModel(for: indexPath.item) {
+        if let itemViewModel = viewModel.itemViewModel(for: indexPath.item) {
             navigationController?.pushViewController(GalleryDetailViewController(viewModel: itemViewModel), animated: true)
         }
     }

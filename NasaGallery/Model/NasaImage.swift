@@ -40,7 +40,6 @@ struct NasaItem: Decodable, Hashable {
         self.id = data.nasa_id
         self.title = data.title
         self.description = data.description
-        self.center = data.center
         
         let links = try container.decode([ItemLink].self, forKey: .links)
         guard let link = links.first  else {
@@ -60,10 +59,16 @@ struct NasaData: Decodable {
     let nasa_id: String
     let title: String
     let description: String
-    var center: String?
 }
 
-struct NasaImage: Decodable {
+struct NasaItemMeta: Decodable {
+    let photographer: String
+    let location: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case photographer = "AVAIL:Photographer"
+        case location = "AVAIL:Location"
+    }
 }
 
 struct NasaItemCollection: Decodable {

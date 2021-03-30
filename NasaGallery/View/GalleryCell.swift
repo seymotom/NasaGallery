@@ -26,8 +26,7 @@ class GalleryCell: UICollectionViewCell, ThumbnailImageDelegate {
     func setThumbnail(_ data: Data?) {
         DispatchQueue.main.async {
             if let data = data {
-//                self.imageView.image = UIImage(data: data)
-                self.imageView.image = UIImage(named: "noImage")
+                self.imageView.image = UIImage(data: data)
             } else {
                 self.imageView.image = UIImage(named: "noImage")
             }

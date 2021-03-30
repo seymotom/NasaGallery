@@ -114,13 +114,9 @@
 				DEDD00BB2611FC4C00FEAF80 /* Assets.xcassets */,
 				DEDD00BD2611FC4C00FEAF80 /* LaunchScreen.storyboard */,
 				DEDD00C02611FC4C00FEAF80 /* Info.plist */,
-				DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */,
-				DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */,
-				DEDD00F82612132500FEAF80 /* NasaImage.swift */,
-				DEDD00FD261243A000FEAF80 /* GalleryCell.swift */,
-				DEDD01022612556800FEAF80 /* GalleryItemViewModel.swift */,
-				DEDD010A2612657A00FEAF80 /* Network.swift */,
-				DEDD010F2612794100FEAF80 /* GalleryDetailViewController.swift */,
+				DEDD011726137C9700FEAF80 /* Model */,
+				DEDD011826137C9F00FEAF80 /* ViewModel */,
+				DEDD011926137CAB00FEAF80 /* View */,
 			);
 			path = NasaGallery;
 			sourceTree = "<group>";
@@ -141,6 +137,34 @@
 				DEDD00D62611FC4D00FEAF80 /* Info.plist */,
 			);
 			path = NasaGalleryUITests;
+			sourceTree = "<group>";
+		};
+		DEDD011726137C9700FEAF80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEDD00F82612132500FEAF80 /* NasaImage.swift */,
+				DEDD010A2612657A00FEAF80 /* Network.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEDD011826137C9F00FEAF80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */,
+				DEDD01022612556800FEAF80 /* GalleryItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DEDD011926137CAB00FEAF80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */,
+				DEDD00FD261243A000FEAF80 /* GalleryCell.swift */,
+				DEDD010F2612794100FEAF80 /* GalleryDetailViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

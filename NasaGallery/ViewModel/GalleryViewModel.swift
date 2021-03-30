@@ -22,8 +22,9 @@ class GalleryViewModel {
     }
     
     // caching viewModels
-    var itemViewModels: [NasaItem: GalleryItemViewModel] = [:]
+    private var itemViewModels: [NasaItem: GalleryItemViewModel] = [:]
     
+    // weak reference to delegate to avoid retain cycle
     weak var delegate: GalleryDelegate?
     
     func fetchItems() {
