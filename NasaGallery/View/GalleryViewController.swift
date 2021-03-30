@@ -43,7 +43,7 @@ class GalleryViewController: UIViewController, GalleryDelegate, UICollectionView
 
         title = "NASA Gallery"
         
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: gridLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: adaptiveLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .black
         collectionView.delegate = self
@@ -69,6 +69,28 @@ class GalleryViewController: UIViewController, GalleryDelegate, UICollectionView
         viewModel.fetchItems()
     }
     
+    private func adaptiveLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout {
+            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            // if the device is wider than 400 pts then it lays out 5 items accross intead of 3
+            let isWide = layoutEnvironment.container.effectiveContentSize.width > 400
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(isWide ? 0.2 : 0.33),
+                                                 heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                   heightDimension: .fractionalWidth(isWide ? 0.2 : 0.33))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                             subitems: [item])
+
+            return NSCollectionLayoutSection(group: group)
+        }
+        return layout
+    }
+    
+    // MARK: GalleryDelegate
+    
     func contentChanged() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, NasaItem>()
         snapshot.appendSections([.main])
@@ -76,21 +98,7 @@ class GalleryViewController: UIViewController, GalleryDelegate, UICollectionView
         self.dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    private func gridLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33),
-                                             heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalWidth(0.4))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                         subitems: [item])
-
-        let section = NSCollectionLayoutSection(group: group)
-
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
-    }
+    // MARK: UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let itemViewModel = viewModel.itemViewModel(for: indexPath.item) {

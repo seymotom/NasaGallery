@@ -46,7 +46,8 @@ class GalleryCell: UICollectionViewCell, ThumbnailImageDelegate {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 5
-        imageView.layer.borderColor = UIColor.systemGray2.cgColor
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.darkGray.cgColor
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
