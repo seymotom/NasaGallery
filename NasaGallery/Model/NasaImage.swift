@@ -16,7 +16,6 @@ struct NasaItem: Decodable, Hashable {
     let id: String
     let title: String
     let description: String
-    var center: String?
     let imageCollectionUrl: String
     let thumbnailUrl: String
     
@@ -27,7 +26,6 @@ struct NasaItem: Decodable, Hashable {
         case id
         case title
         case description
-        case center
     }
     
     init(from decoder: Decoder) throws {

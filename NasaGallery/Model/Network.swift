@@ -8,7 +8,12 @@
 import Foundation
 
 class Network {
-    static func fetchData(endpoint: String, completion: @escaping (Data?, Error?) -> Void) {
+    static func fetchData(endpoint: String, testData: Data? = nil, completion: @escaping (Data?, Error?) -> Void) {
+        if let testData = testData {
+            completion(testData, nil)
+            return
+        }
+        
         guard let url = URL(string: endpoint) else {
             return
         }

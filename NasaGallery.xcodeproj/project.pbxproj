@@ -12,7 +12,6 @@
 		DEDD00BC2611FC4C00FEAF80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDD00BB2611FC4C00FEAF80 /* Assets.xcassets */; };
 		DEDD00BF2611FC4C00FEAF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD00BD2611FC4C00FEAF80 /* LaunchScreen.storyboard */; };
 		DEDD00CA2611FC4D00FEAF80 /* NasaGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00C92611FC4D00FEAF80 /* NasaGalleryTests.swift */; };
-		DEDD00D52611FC4D00FEAF80 /* NasaGalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00D42611FC4D00FEAF80 /* NasaGalleryUITests.swift */; };
 		DEDD00EC26120EF700FEAF80 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */; };
 		DEDD00F42612113E00FEAF80 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */; };
 		DEDD00F92612132500FEAF80 /* NasaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD00F82612132500FEAF80 /* NasaImage.swift */; };
@@ -20,17 +19,14 @@
 		DEDD01032612556800FEAF80 /* GalleryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD01022612556800FEAF80 /* GalleryItemViewModel.swift */; };
 		DEDD010B2612657A00FEAF80 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD010A2612657A00FEAF80 /* Network.swift */; };
 		DEDD01102612794100FEAF80 /* GalleryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD010F2612794100FEAF80 /* GalleryDetailViewController.swift */; };
+		DEDD011E2613A2A500FEAF80 /* GalleryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD011D2613A2A500FEAF80 /* GalleryViewModelTests.swift */; };
+		DEDD01232613A37F00FEAF80 /* NasaCollection.json in Resources */ = {isa = PBXBuildFile; fileRef = DEDD01222613A37F00FEAF80 /* NasaCollection.json */; };
+		DEDD013E2613ABF300FEAF80 /* NasaMeta.json in Resources */ = {isa = PBXBuildFile; fileRef = DEDD013D2613ABF300FEAF80 /* NasaMeta.json */; };
+		DEDD01422613AEB800FEAF80 /* NasaImageUrls.json in Resources */ = {isa = PBXBuildFile; fileRef = DEDD01412613AEB800FEAF80 /* NasaImageUrls.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		DEDD00C62611FC4D00FEAF80 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DEDD00A72611FC4800FEAF80 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DEDD00AE2611FC4800FEAF80;
-			remoteInfo = NasaGallery;
-		};
-		DEDD00D12611FC4D00FEAF80 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DEDD00A72611FC4800FEAF80 /* Project object */;
 			proxyType = 1;
@@ -49,9 +45,6 @@
 		DEDD00C52611FC4D00FEAF80 /* NasaGalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaGalleryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD00C92611FC4D00FEAF80 /* NasaGalleryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaGalleryTests.swift; sourceTree = "<group>"; };
 		DEDD00CB2611FC4D00FEAF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DEDD00D02611FC4D00FEAF80 /* NasaGalleryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaGalleryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEDD00D42611FC4D00FEAF80 /* NasaGalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaGalleryUITests.swift; sourceTree = "<group>"; };
-		DEDD00D62611FC4D00FEAF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEDD00EB26120EF700FEAF80 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		DEDD00F32612113E00FEAF80 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		DEDD00F82612132500FEAF80 /* NasaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImage.swift; sourceTree = "<group>"; };
@@ -59,6 +52,10 @@
 		DEDD01022612556800FEAF80 /* GalleryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemViewModel.swift; sourceTree = "<group>"; };
 		DEDD010A2612657A00FEAF80 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DEDD010F2612794100FEAF80 /* GalleryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDetailViewController.swift; sourceTree = "<group>"; };
+		DEDD011D2613A2A500FEAF80 /* GalleryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelTests.swift; sourceTree = "<group>"; };
+		DEDD01222613A37F00FEAF80 /* NasaCollection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NasaCollection.json; sourceTree = "<group>"; };
+		DEDD013D2613ABF300FEAF80 /* NasaMeta.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NasaMeta.json; sourceTree = "<group>"; };
+		DEDD01412613AEB800FEAF80 /* NasaImageUrls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NasaImageUrls.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,13 +73,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DEDD00CD2611FC4D00FEAF80 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,7 +81,6 @@
 			children = (
 				DEDD00B12611FC4800FEAF80 /* NasaGallery */,
 				DEDD00C82611FC4D00FEAF80 /* NasaGalleryTests */,
-				DEDD00D32611FC4D00FEAF80 /* NasaGalleryUITests */,
 				DEDD00B02611FC4800FEAF80 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,7 +90,6 @@
 			children = (
 				DEDD00AF2611FC4800FEAF80 /* NasaGallery.app */,
 				DEDD00C52611FC4D00FEAF80 /* NasaGalleryTests.xctest */,
-				DEDD00D02611FC4D00FEAF80 /* NasaGalleryUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,17 +114,12 @@
 			children = (
 				DEDD00C92611FC4D00FEAF80 /* NasaGalleryTests.swift */,
 				DEDD00CB2611FC4D00FEAF80 /* Info.plist */,
+				DEDD011D2613A2A500FEAF80 /* GalleryViewModelTests.swift */,
+				DEDD01222613A37F00FEAF80 /* NasaCollection.json */,
+				DEDD013D2613ABF300FEAF80 /* NasaMeta.json */,
+				DEDD01412613AEB800FEAF80 /* NasaImageUrls.json */,
 			);
 			path = NasaGalleryTests;
-			sourceTree = "<group>";
-		};
-		DEDD00D32611FC4D00FEAF80 /* NasaGalleryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DEDD00D42611FC4D00FEAF80 /* NasaGalleryUITests.swift */,
-				DEDD00D62611FC4D00FEAF80 /* Info.plist */,
-			);
-			path = NasaGalleryUITests;
 			sourceTree = "<group>";
 		};
 		DEDD011726137C9700FEAF80 /* Model */ = {
@@ -205,24 +188,6 @@
 			productReference = DEDD00C52611FC4D00FEAF80 /* NasaGalleryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DEDD00CF2611FC4D00FEAF80 /* NasaGalleryUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DEDD00DF2611FC4D00FEAF80 /* Build configuration list for PBXNativeTarget "NasaGalleryUITests" */;
-			buildPhases = (
-				DEDD00CC2611FC4D00FEAF80 /* Sources */,
-				DEDD00CD2611FC4D00FEAF80 /* Frameworks */,
-				DEDD00CE2611FC4D00FEAF80 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DEDD00D22611FC4D00FEAF80 /* PBXTargetDependency */,
-			);
-			name = NasaGalleryUITests;
-			productName = NasaGalleryUITests;
-			productReference = DEDD00D02611FC4D00FEAF80 /* NasaGalleryUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -236,10 +201,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					DEDD00C42611FC4D00FEAF80 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = DEDD00AE2611FC4800FEAF80;
-					};
-					DEDD00CF2611FC4D00FEAF80 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = DEDD00AE2611FC4800FEAF80;
 					};
@@ -260,7 +221,6 @@
 			targets = (
 				DEDD00AE2611FC4800FEAF80 /* NasaGallery */,
 				DEDD00C42611FC4D00FEAF80 /* NasaGalleryTests */,
-				DEDD00CF2611FC4D00FEAF80 /* NasaGalleryUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -279,13 +239,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DEDD00CE2611FC4D00FEAF80 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				DEDD01232613A37F00FEAF80 /* NasaCollection.json in Resources */,
+				DEDD013E2613ABF300FEAF80 /* NasaMeta.json in Resources */,
+				DEDD01422613AEB800FEAF80 /* NasaImageUrls.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,15 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEDD011E2613A2A500FEAF80 /* GalleryViewModelTests.swift in Sources */,
 				DEDD00CA2611FC4D00FEAF80 /* NasaGalleryTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DEDD00CC2611FC4D00FEAF80 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DEDD00D52611FC4D00FEAF80 /* NasaGalleryUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,11 +280,6 @@
 			isa = PBXTargetDependency;
 			target = DEDD00AE2611FC4800FEAF80 /* NasaGallery */;
 			targetProxy = DEDD00C62611FC4D00FEAF80 /* PBXContainerItemProxy */;
-		};
-		DEDD00D22611FC4D00FEAF80 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DEDD00AE2611FC4800FEAF80 /* NasaGallery */;
-			targetProxy = DEDD00D12611FC4D00FEAF80 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -549,46 +493,6 @@
 			};
 			name = Release;
 		};
-		DEDD00E02611FC4D00FEAF80 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P7Y3CKA76T;
-				INFOPLIST_FILE = NasaGalleryUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = seymotom.NasaGalleryUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NasaGallery;
-			};
-			name = Debug;
-		};
-		DEDD00E12611FC4D00FEAF80 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P7Y3CKA76T;
-				INFOPLIST_FILE = NasaGalleryUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = seymotom.NasaGalleryUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NasaGallery;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -615,15 +519,6 @@
 			buildConfigurations = (
 				DEDD00DD2611FC4D00FEAF80 /* Debug */,
 				DEDD00DE2611FC4D00FEAF80 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DEDD00DF2611FC4D00FEAF80 /* Build configuration list for PBXNativeTarget "NasaGalleryUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DEDD00E02611FC4D00FEAF80 /* Debug */,
-				DEDD00E12611FC4D00FEAF80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

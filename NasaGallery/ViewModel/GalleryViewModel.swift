@@ -13,7 +13,7 @@ protocol GalleryDelegate: AnyObject {
 }
 
 class GalleryViewModel {
-    private var nextPageUrl = "https://images-api.nasa.gov/search?q=space&media_type=image"
+    private(set) var nextPageUrl = "https://images-api.nasa.gov/search?q=space&media_type=image"
     
     private(set) var items: [NasaItem]? {
         didSet {
@@ -27,8 +27,8 @@ class GalleryViewModel {
     // weak reference to delegate to avoid retain cycle
     weak var delegate: GalleryDelegate?
     
-    func fetchItems() {
-        Network.fetchData(endpoint: self.nextPageUrl) { [weak self] data, error in
+    func fetchItems(testData: Data? = nil) {
+        Network.fetchData(endpoint: self.nextPageUrl, testData: testData) { [weak self] data, error in
             guard let self = self else { return }
             if let data = data {
                 do {

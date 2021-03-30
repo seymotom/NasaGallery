@@ -70,20 +70,20 @@ class GalleryItemViewModel {
         }
     }
     
-    func fetchFullImageMetaData() {
+    func fetchFullImageMetaData(testCollectionData: Data? = nil, testMetaData: Data? = nil) {
         if itemMeta != nil {
             fullImageDelegate?.setFullImage(fullImageData)
             galleryDelegate?.contentChanged()
         } else {
-            Network.fetchData(endpoint: item.imageCollectionUrl) { [weak self] data, error in
+            Network.fetchData(endpoint: item.imageCollectionUrl, testData: testCollectionData) { [weak self] data, error in
                 if let data = data {
                     do {
                         let collection = try JSONDecoder().decode([String].self, from: data)
                         if let imageUrl = collection.first(where: { $0.hasSuffix("orig.jpg") }) {
-                            self?.fetchFullImage(imageUrl)
+                            self?.fetchFullImage(imageUrl, testData: testMetaData)
                         }
                         if let metaUrl = collection.first(where: { $0.hasSuffix("metadata.json")}) {
-                            self?.fetchMetaData(metaUrl)
+                            self?.fetchMetaData(metaUrl, testData: testMetaData)
                         }
                         
                     } catch (let error) {
@@ -97,8 +97,8 @@ class GalleryItemViewModel {
         }
     }
     
-    private func fetchFullImage(_ url: String) {
-        Network.fetchData(endpoint: url) { [weak self] data, error in
+    private func fetchFullImage(_ url: String, testData: Data? = nil) {
+        Network.fetchData(endpoint: url, testData: testData) { [weak self] data, error in
             if let data = data {
                 self?.fullImageData = data
                 self?.fullImageDelegate?.setFullImage(data)
@@ -109,8 +109,8 @@ class GalleryItemViewModel {
         }
     }
     
-    private func fetchMetaData(_ url: String) {
-        Network.fetchData(endpoint: url) { [weak self] data, error in
+    private func fetchMetaData(_ url: String, testData: Data? = nil) {
+        Network.fetchData(endpoint: url, testData: testData) { [weak self] data, error in
             if let data = data {
                 do {
                     self?.itemMeta = try JSONDecoder().decode(NasaItemMeta.self, from: data)
