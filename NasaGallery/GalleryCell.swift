@@ -7,31 +7,30 @@
 
 import UIKit
 
-class GalleryCell: UICollectionViewCell, ImageDelegate {
+class GalleryCell: UICollectionViewCell, ThumbnailImageDelegate {
+    static let reuseIdentifier = "GalleryCell"
     private let inset = CGFloat(4)
 
-    let label = UILabel()
-    let imageView = UIImageView()
-    let activityIndicator = UIActivityIndicatorView()
-    static let reuseIdentifier = "GalleryCell"
+    private let imageView = UIImageView()
+    private let activityIndicator = UIActivityIndicatorView()
     
     var viewModel: GalleryItemViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
-            viewModel.delegate = self
-//            self.label.text = viewModel.title
-            if let thumbnailData = viewModel.thumbnailImageData {
-                self.setThumbnail(thumbnailData)
-            } else {
-                viewModel.fetchThumbnail()
-                self.activityIndicator.startAnimating()
-            }
+            viewModel.thumbnailDelegate = self
+            viewModel.fetchThumbnail()
+            activityIndicator.startAnimating()
         }
     }
     
-    func setThumbnail(_ data: Data) {
+    func setThumbnail(_ data: Data?) {
         DispatchQueue.main.async {
-            self.imageView.image = UIImage(data: data)
+            if let data = data {
+//                self.imageView.image = UIImage(data: data)
+                self.imageView.image = UIImage(named: "noImage")
+            } else {
+                self.imageView.image = UIImage(named: "noImage")
+            }
             self.activityIndicator.stopAnimating()
         }
     }
@@ -40,15 +39,9 @@ class GalleryCell: UICollectionViewCell, ImageDelegate {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         imageView.addSubview(activityIndicator)
-        imageView.addSubview(label)
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.textColor = .lightText
-        label.adjustsFontForContentSizeCategory = true
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
@@ -62,15 +55,11 @@ class GalleryCell: UICollectionViewCell, ImageDelegate {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
             activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: inset),
-            label.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -inset),
-            label.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -inset)
+            activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
             ])
     }
     
     required init?(coder: NSCoder) {
         fatalError("not implemnted")
     }
-
 }
