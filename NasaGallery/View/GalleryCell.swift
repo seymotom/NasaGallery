@@ -22,17 +22,6 @@ class GalleryCell: UICollectionViewCell, ThumbnailImageDelegate {
             activityIndicator.startAnimating()
         }
     }
-    
-    func setThumbnail(_ data: Data?) {
-        DispatchQueue.main.async {
-            if let data = data {
-                self.imageView.image = UIImage(data: data)
-            } else {
-                self.imageView.image = UIImage(named: "noImage")
-            }
-            self.activityIndicator.stopAnimating()
-        }
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,5 +50,18 @@ class GalleryCell: UICollectionViewCell, ThumbnailImageDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("not implemnted")
+    }
+    
+    // MARK: ThumbnailImageDelegate
+    
+    func setThumbnail(_ data: Data?) {
+        DispatchQueue.main.async {
+            if let data = data {
+                self.imageView.image = UIImage(data: data)
+            } else {
+                self.imageView.image = UIImage(named: "noImage")
+            }
+            self.activityIndicator.stopAnimating()
+        }
     }
 }

@@ -108,6 +108,8 @@ class GalleryDetailViewController: UIViewController, FullImageDelegate, GalleryD
             ])
     }
     
+    // MARK: FullImageDelegate
+    
     func setFullImage(_ data: Data?) {
         DispatchQueue.main.async {
             if let data = data {
@@ -118,6 +120,8 @@ class GalleryDetailViewController: UIViewController, FullImageDelegate, GalleryD
             self.activityIndicator.stopAnimating()
         }
     }
+    
+    // MARK: GalleryDelegate
     
     func contentChanged() {
         DispatchQueue.main.async {

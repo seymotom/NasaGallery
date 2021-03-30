@@ -33,6 +33,7 @@ class GalleryViewModel {
             if let data = data {
                 do {
                     let collection = try JSONDecoder().decode(NasaCollectionWrapper.self, from: data)
+                    // appending items to the current collection for pagination
                     self.items = (self.items ?? []) + collection.collection.items
                     if let nextPageUrl = collection.collection.links.first(where: { $0.prompt == "Next" })?.href {
                         self.nextPageUrl = nextPageUrl
