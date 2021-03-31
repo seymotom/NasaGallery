@@ -10,10 +10,12 @@ import UIKit
 extension GalleryDelegate where Self: UIViewController {
     // default implementaion to show error on a ViewController
     func showError(_ error: Error) {
-        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okayAction)
-        self.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "Okay", style: .default)
+            alertController.addAction(okayAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 

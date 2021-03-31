@@ -17,9 +17,10 @@ class GalleryCell: UICollectionViewCell, ThumbnailImageDelegate {
     var viewModel: GalleryItemViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
+            activityIndicator.startAnimating()
+            imageView.image = nil
             viewModel.thumbnailDelegate = self
             viewModel.fetchThumbnail()
-            activityIndicator.startAnimating()
         }
     }
 

@@ -13,7 +13,7 @@ protocol GalleryDelegate: AnyObject {
 }
 
 class GalleryViewModel {
-    private(set) var nextPageUrl = "https://images-api.nasa.gov/search?q=space&media_type=image"
+    private(set) var nextPageUrl: String? = "https://images-api.nasa.gov/search?q=space&media_type=image"
     
     private(set) var items: [NasaItem]? {
         didSet {
@@ -28,7 +28,11 @@ class GalleryViewModel {
     weak var delegate: GalleryDelegate?
     
     func fetchItems(testData: Data? = nil) {
-        Network.fetchData(endpoint: self.nextPageUrl, testData: testData) { [weak self] data, error in
+        guard let nextPageUrl = self.nextPageUrl else {
+            // stops making the same request multiple times once the paging is complete
+            return
+        }
+        Network.fetchData(endpoint: nextPageUrl, testData: testData) { [weak self] data, error in
             guard let self = self else { return }
             if let data = data {
                 do {
@@ -37,6 +41,8 @@ class GalleryViewModel {
                     self.items = (self.items ?? []) + collection.collection.items
                     if let nextPageUrl = collection.collection.links.first(where: { $0.prompt == "Next" })?.href {
                         self.nextPageUrl = nextPageUrl
+                    } else {
+                        self.nextPageUrl = nil
                     }
                 } catch (let error) {
                     self.delegate?.showError(error)
